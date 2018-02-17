@@ -12,7 +12,7 @@ public class StringUtil {
     }
     public static String[] splitToOperands(String expression){
         return  expression
-                .replaceAll("(\\+|-|\\*|/|%|^|\\(|\\)|\\w+)"," $1 ")
+                .replaceAll("(\\+|-|\\*|\\/|\\%|\\^|\\(|\\)|(\\w+\\.*\\w*))"," $1 ")
                 .replaceAll("\\s+"," ")
                 .trim()
                 .split(" ");

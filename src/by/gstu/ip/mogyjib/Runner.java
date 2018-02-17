@@ -3,35 +3,31 @@ package by.gstu.ip.mogyjib;
 
 import by.gstu.ip.mogyjib.exceptions.IllegalFormatException;
 import by.gstu.ip.mogyjib.models.Calculator;
-import by.gstu.ip.mogyjib.utils.RpnUtil;
-import by.gstu.ip.mogyjib.utils.StringUtil;
+import by.gstu.ip.mogyjib.utils.ConvertionUtil;
+import by.gstu.ip.mogyjib.utils.TaskUtil;
 
-import java.util.Arrays;
-import java.util.Calendar;
+import java.io.IOException;
 
 
 public class Runner {
     public static void main(String[] args){
-        String expression = "(4-2)/(( sin(30)+1 )*2) ";
 
-        expression = StringUtil.processUnMinus(expression);
+        TaskUtil firstTask = new TaskUtil(Calculator::calculateSimpleExpression),
+            secondTask = new TaskUtil(Calculator::calculateComplexExpression),
+            thirdTask = new TaskUtil(Calculator::calculateComplexExpression);
 
-        String[] operands = StringUtil.splitToOperands(expression);
-        String[] operandsRpn = RpnUtil.makeRpn(operands);
-
-        Arrays.asList(operands).forEach(op -> System.out.print(op+" "));
-        System.out.print("\n");
-        Arrays.asList(operandsRpn).forEach(op -> System.out.print(op+" "));
-
-        double res = 0;
         try {
-            res = Calculator.calculateComplexExpression(expression);
-            System.out.println("\n"+expression+" = "+res+"\n");
-        }
-        catch (IllegalFormatException ex){
-            System.out.println("\n"+ex.getMessage()+"\n");
-        }
+            firstTask.make("files\\input_1.txt",
+                    "files\\output_1.txt");
 
+            secondTask.make("files\\input_2.txt",
+                    "files\\output_2.txt");
+
+            thirdTask.make("files\\input_3.txt",
+                    "files\\output_3.txt");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
