@@ -9,18 +9,15 @@ import java.util.Map;
 import static by.gstu.ip.mogyjib.interfaces.BinOperationable.*;
 import static by.gstu.ip.mogyjib.interfaces.UnOperationable.*;
 import static by.gstu.ip.mogyjib.interfaces.UnOperationable.ZERO;
-import static by.gstu.ip.mogyjib.utils.StringUtil.CLOSE_BRACKET;
-import static by.gstu.ip.mogyjib.utils.StringUtil.OPEN_BRACKET;
 
 
 public class Operation {
-    public static final int LOW_PRIORITY = 0;
-    public static final int AVERAGE_PRIORITY = 1;
-    public static final int HIGH_PRIORITY = 2;
-
     public static final Map<String, UnOperationable> UNARY = new HashMap<>();
     public static final Map<String, BinOperationable> BINARY = new HashMap<>();
     public static final Map<String, Integer> PRIORITIES = new HashMap<>();
+    private static final int LOW_PRIORITY = 0;
+    private static final int AVERAGE_PRIORITY = 1;
+    private static final int HIGH_PRIORITY = 2;
 
     static {
         add("(",ZERO,HIGH_PRIORITY);

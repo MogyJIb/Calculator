@@ -7,9 +7,7 @@ import java.util.Stack;
 import static by.gstu.ip.mogyjib.utils.StringUtil.CLOSE_BRACKET;
 import static by.gstu.ip.mogyjib.utils.StringUtil.OPEN_BRACKET;
 
-/**
- * Created by Zhecka on 16.02.2018.
- */
+
 public class RpnUtil {
 
 
@@ -48,6 +46,8 @@ public class RpnUtil {
         String[] resultArr = new String[operandStack.size()];
         operandStack.toArray(resultArr);
 
+        free();
+
         return resultArr;
     }
 
@@ -60,6 +60,11 @@ public class RpnUtil {
             }
             operandStack.push(operationStack.pop());
         }
+    }
+
+    private static void free() {
+        operandStack.clear();
+        operationStack.clear();
     }
 
 }

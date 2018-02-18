@@ -13,13 +13,15 @@ public class Calculator {
     }
 
     public static double calculate(String operation,double first){
-
         return Operation.UNARY.get(operation).calculate(first);
     }
 
 
     public static double calculateSimpleExpression(String expression)
             throws IllegalFormatException {
+        if (expression.isEmpty())
+            throw new IllegalFormatException("Empty line.");
+
         expression = StringUtil.processUnMinus(expression);
 
         String[] operands = StringUtil.splitToOperands(expression);
@@ -40,6 +42,9 @@ public class Calculator {
 
     public static double calculateComplexExpression(String expression)
             throws IllegalFormatException {
+        if (expression.isEmpty())
+            throw new IllegalFormatException("Empty line.");
+
         expression = StringUtil.processUnMinus(expression);
 
         String[] operands = StringUtil.splitToOperands(expression);
@@ -74,7 +79,7 @@ public class Calculator {
                 processingStack.push(calculate(operand, first));
 
             } else {
-                double res = 0;
+                double res;
                 try {
                     res = Double.parseDouble(operand);
                 } catch (Exception ex) {

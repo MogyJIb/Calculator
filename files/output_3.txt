@@ -1,5 +1,5 @@
-50/4 + (sin(90) - 5^3)-sqrt(25)=-116.5
-cos(tg(55)-19 )- 2/ 4 + 2*sin(10)-15=-14.19936
+Binary operator should has two arguments.
 16 + 4/ sin(23)^ 2 -21*(1-sqrt(24))=118.84194
-sin(2^21-5)/cos(sqrt(22)-14*tg(54))=0.56276
-(1/12-4*cos(1/2+sqrt(10)-3))/(cos(22)+sin(2/3))=-4.17162
+sin(2^21- 5)/cos (sqrt(22)-14*tg(54))=0.56276
+Division by zero.
+(1/12-4 *cos (1/2+sqrt(10)- 3))/(cos( 22 ) + sin(2/3))=-4.17162

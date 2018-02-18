@@ -1,8 +1,5 @@
 package by.gstu.ip.mogyjib.interfaces;
 
-/**
- * Created by Zhecka on 16.02.2018.
- */
 public interface BinOperationable {
     BinOperationable SUM = (x,y) -> (x+y);
     BinOperationable SUBTRACTION = (x,y) -> (x-y);
